@@ -26,7 +26,8 @@ export class RestProvider {
 	}
 
 	getByCode(code: any): Observable<{}> {
-  		return this.http.get(this.apiUrl+code).pipe(
+		console.log(code);
+  		return this.http.get(this.apiUrl+"name/"+code).pipe(
     		map(this.extractData),
     		catchError(this.handleError)
   		);

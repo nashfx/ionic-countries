@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the DetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RestProvider } from '../../providers/rest/rest';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'details.html',
 })
 export class DetailsPage {
+	public code: string;
+	country: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public rest: RestProvider) {
+  	this.code = navParams.get("code");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailsPage');
-  }
+  	ionViewDidLoad() {
+		console.log(this.code);
+  		this.getCountry();
+  	}
+
+  	getCountry(){
+  		this.rest.getByCode(this.code).subscribe((country: any) => {
+  			this.country = country;
+  		});
+  	}
 
 }

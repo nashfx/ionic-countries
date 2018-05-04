@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { DetailsPage } from './../details/details';
 
 @Component({
   selector: 'page-home',
@@ -24,4 +25,9 @@ export class HomePage {
   		});
   	}
 
+  	details(code: string){
+  		this.navCtrl.push(DetailsPage, {
+  			code: code 
+  		});
+  	}
 }
