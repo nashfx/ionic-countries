@@ -3,20 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { map, catchError } from 'rxjs/operators';
 
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class RestProvider {
-
-  	constructor(public http: HttpClient) {
-    	console.log('Hello RestProvider Provider');
-  	}
-
-  	private apiUrl = "https://restcountries.eu/rest/v2/";
+  	
+  constructor(public http: HttpClient) {
+    console.log('Hello RestProvider Provider');
+  }
+    
+    private apiUrl = "https://restcountries.eu/rest/v2/";
 
   	getCountries(): Observable<{}> {
   		return this.http.get(this.apiUrl+'all').pipe(
@@ -26,8 +20,8 @@ export class RestProvider {
 	}
 
 	getByCode(code: any): Observable<{}> {
-		console.log(code);
-  		return this.http.get(this.apiUrl+"name/"+code).pipe(
+    console.log(code);
+  		return this.http.get(this.apiUrl+"alpha/"+code).pipe(
     		map(this.extractData),
     		catchError(this.handleError)
   		);

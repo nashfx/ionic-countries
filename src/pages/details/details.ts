@@ -15,15 +15,15 @@ export class DetailsPage {
   	this.code = navParams.get("code");
   }
 
-  	ionViewDidLoad() {
-		console.log(this.code);
-  		this.getCountry();
-  	}
+	ionViewDidLoad() {
+		this.getCountry();
+	}
 
-  	getCountry(){
-  		this.rest.getByCode(this.code).subscribe((country: any) => {
-  			this.country = country;
-  		});
-  	}
+	getCountry(){
+    console.log(this.code);
+		this.rest.getByCode(this.code).subscribe((country: any) => {
+			this.country = country;
+		});
+	}
 
 }

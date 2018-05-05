@@ -6,7 +6,28 @@
 
 
 <ion-content padding>
-	<h1>{{code}}</h1>
-
-	{{ country | json}}
+	<div *ngIf="country">
+		<ion-grid>
+			<ion-row>
+				<ion-col col-3><img src="{{country.flag}}"></ion-col>
+				<ion-col col-9 class="title"><h1>{{ country.translations.es }}</h1></ion-col>
+			</ion-row>
+			<ion-row class="test">
+				<ion-col>{{ country.region }} - {{ country.subregion }}</ion-col> 
+			</ion-row>
+			<ion-row>
+				<ion-col>Población: {{ country.population | number }}</ion-col> 
+			</ion-row>
+			<ion-row>
+				<ion-col>Código telefónico: +{{ country.callingCodes }}</ion-col> 
+			</ion-row>
+			<ion-row>
+				<ion-col col-6>Abreviación: {{ country.alpha2Code }}</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-6>Extensión web: {{ country.topLevelDomain[0] }}</ion-col> 
+			</ion-row>
+		</ion-grid>
+		
+	</div>
 </ion-content>
