@@ -7,6 +7,16 @@
 </ion-header>
 
 <ion-content padding>
+
+	<ion-card *ngIf="nasa" (click)="nasaDetails()">
+	  <img src="{{nasa.url}}"/>
+	  	<ion-card-content>
+	    	<ion-card-title class="title-size">
+	      		NASA Astronomy Picture of the Day
+	      	</ion-card-title>
+	  	</ion-card-content>	
+	</ion-card>
+
 	<ion-list>
 		<ion-item *ngFor="let c of countries" (click)="details(c.alpha2Code)">
 			<ion-avatar item-left>

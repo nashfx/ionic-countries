@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>nasa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="nasa">
+    <h3 style="text-align: center">NASA Astronomy Picture of the Day</h3>
+
+	<ion-card>
+	  	<img src="{{nasa.url}}"/>
+  		<ion-card-content>
+    		<ion-card-title class="title-size">
+    			{{nasa.title}} <small>{{nasa.date}}</small>
+      		</ion-card-title>
+      		<p style="text-align: justify;">
+				{{ nasa.explanation }}    			
+      		</p>
+  		</ion-card-content>	
+	</ion-card>
+</ion-content>

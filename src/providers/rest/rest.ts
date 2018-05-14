@@ -20,12 +20,18 @@ export class RestProvider {
 	}
 
 	getByCode(code: any): Observable<{}> {
-    console.log(code);
   		return this.http.get(this.apiUrl+"alpha/"+code).pipe(
     		map(this.extractData),
     		catchError(this.handleError)
   		);
 	}
+
+  getNasaDaily(): Observable<{}> {
+    return this.http.get("https://api.nasa.gov/planetary/apod?api_key=tvLKukfbDnfyuyVM17XQWDjH3H7mi7iYI2iJRokA").pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
 
 	private extractData(res: Response) {
   		let body = res;

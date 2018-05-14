@@ -20,7 +20,6 @@ export class DetailsPage {
 	}
 
 	getCountry(){
-    console.log(this.code);
 		this.rest.getByCode(this.code).subscribe((country: any) => {
 			this.country = country;
 		});
