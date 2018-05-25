@@ -1,9 +1,16 @@
 page-details {
-
 }
+
 .title {
 	margin-top: 5px;
 }
 .test{
 	margin: 20px 0;
+}
+
+#map_canvas{
+	display: block;
+	background-color: coral;
+    height: 40%;
+    width: 80%;
 }
